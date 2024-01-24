@@ -126,6 +126,27 @@ flowchart TD
 - `modified (Changes not staged for commit)`;
 - `untracked (Untracked files)`.
 
+#### Как исправить коммит
+
+`git commit --amend --no-edit` - внести правки в уже сделанный коммит с помощью опции `--amend` (от англ. _amend_ — «исправить», «дополнить»); `--no-edit` - сообщает команде `commit`, что сообщение коммита нужно оставить как было.
+
+#### Изменить сообщение коммита
+
+`git commit --amend -m "Новое сообщение"` - меняем сообщение в коммите на "Новое сообщение".
+
+#### unstage
+
+`git restore --staged <file>` - переводим `<file>` из `staged` обратно в `untracked`.
+
+#### "Откат" коммита
+
+`git reset --hard <commit hash>` (от англ. _reset_  — «сброс», «обнуление» и _hard_ — «суровый») вернуть состояние репозитория к более раннему.
+
+#### «Откатить» изменения, которые не попали ни в `staging`, ни в коммит
+
+Может быть так, что вы случайно изменили файл, который не планировали.  Теперь он отображается в `Changes not staged for commit (modified)`.
+`git restore <file>` - отменить такие изменения в файле.
+
 ### GITHUB
 
 `git remote add origin git@github.com:%ИМЯ_АККАУНТА%/first-project.git` - соединяем локальный репозиторий с репозиторием на GitHub;
